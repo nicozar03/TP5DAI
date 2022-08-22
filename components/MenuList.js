@@ -64,7 +64,7 @@ const Menu = () => {
   // Calls Spoonacular API endpoint that returns de IDs of foods that match the search query.
 
   const searchSpoonacular = (searchInput) => {
-    if (searchInput.length >= 3) {
+    if (searchInput.length >= 40) {
       const getSearchResults = async () => {
         const res = await fetch(
           `https://api.spoonacular.com/recipes/autocomplete?apiKey=${API_KEY}&number=3&query=${searchInput}`

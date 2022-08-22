@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native"
 import React from "react";
-import MenuCard from "../Components/MenuCard";
 import { RecipesProvider } from "../Components/RecipeContext";
 import MenuList from "../Components/MenuList";
 export default function Home({route, navigation}){
