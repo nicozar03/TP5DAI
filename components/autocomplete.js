@@ -1,3 +1,4 @@
+import { Text, View, Pressable} from "react-native"
 const Autocomplete = ({
     title,
     id,

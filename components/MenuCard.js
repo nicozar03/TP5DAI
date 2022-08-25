@@ -27,9 +27,8 @@ const MenuCard = ({
     return (
       <View>
         <View>
-          <Image
-            src={image}
-            alt={title}
+          <Image source={image}
+
           />
   
 

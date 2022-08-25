@@ -1,4 +1,4 @@
-import { Text, View, Pressable,TextInput} from "react-native"
+import { Text, View, Pressable,TextInput, StyleSheet} from "react-native"
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import MenuCard from "../components/MenuCard";
@@ -49,8 +49,6 @@ const Menu = () => {
         const email = JSON.parse(localStorage.getItem("activeUser"))[0];
         const userCopy = { ...users };
         userCopy[email].orders.push(finalizedOrder);
-
-        setUsers(userCopy);
         setCurrentOrder({});
 
         Swal.fire({
@@ -79,7 +77,7 @@ const Menu = () => {
 
   return (
 
-      <View>
+      <View >
 
       <SortButtons menuItems={menuItems} setMenuItems={setMenuItems} />
 
@@ -101,7 +99,7 @@ const Menu = () => {
           ))}
       </View>
 
-      <View>
+      
           <Text>
             Not finding what you want?
           </Text>
@@ -110,7 +108,7 @@ const Menu = () => {
           </Text>
 
           
-            <TextInput
+            <TextInput style={styles.input}
               type="text"
               id="search"
               autoComplete="off"
@@ -145,7 +143,7 @@ const Menu = () => {
                 currentTotal={currentTotal}
                 setCurrentOrder={setCurrentOrder}
               />
-              <Pressable
+              <Pressable style={styles.btn}
                 onClick={confirmOrder}
                 disabled={Object.keys(currentOrder).length === 0 ? true : false}
               >
@@ -153,7 +151,6 @@ const Menu = () => {
               </Pressable>
             </>
           )}
-      </View>
       </View>
 
   );
@@ -229,5 +226,32 @@ const exampleMenu = [
     aggregateLikes: 204,
   },
 ];
+const styles = StyleSheet.create({
 
+  btn: {
+    backgroundColor: '#556b2f',
+    borderRadius: '12px',
+    height: '7.7vh',
+    width: '24.16vw',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+}, 
+
+input: {
+    marginBottom: '4vh',
+    borderRadius: 12,
+    color: "#556b2f",
+    borderColor: "#8A864E",
+    borderWidth:3,
+    fontSize: 18,
+    outline: 0,
+    padding: 4,
+    height: '7.7vh',
+    width: '32.16vw',
+
+},
+
+})
 export default Menu;
