@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Button, TextInput, Alert, Pressable } from "react-native";
+import { StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
 import Swal from 'sweetalert2'
 import React from "react";
 
@@ -63,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
             
                 <Pressable onPress={verificar}
                 style={styles.btn}
-                accessibilityLabel="Learn more about this purple button">
+                >
                     
                     <Text style={styles.btnText}>Enviar</Text>
                     

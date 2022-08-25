@@ -84,7 +84,7 @@ const Menu = () => {
       <View>
         {menuItems.length &&
           menuItems.map((item) => (
-            <MenuCard
+            <MenuCard 
               title={item.title}
               image={item.image}
               pricePerServing={Math.round(item.pricePerServing) / 100}
@@ -227,6 +227,10 @@ const exampleMenu = [
   },
 ];
 const styles = StyleSheet.create({
+
+  card:{
+  backgroundColor: "red"  
+  },
 
   btn: {
     backgroundColor: '#556b2f',
