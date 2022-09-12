@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import MenuCard from "../components/MenuCard";
 import Autocomplete from "../components/Autocomplete";
 import Order from "../components/Order";
-import SortButtons from "../components/SortButtons";
+
 
 const Menu = () => {
   const API_KEY = "7cb0e6f2a06740c6af934602a156a996";
@@ -62,7 +62,7 @@ const Menu = () => {
   // Calls Spoonacular API endpoint that returns de IDs of foods that match the search query.
 
   const searchSpoonacular = (searchInput) => {
-    if (searchInput.length >= 40) {
+    if (searchInput.length >= 3) {
       const getSearchResults = async () => {
         const res = await fetch(
           `https://api.spoonacular.com/recipes/autocomplete?apiKey=${API_KEY}&number=3&query=${searchInput}`
@@ -75,11 +75,11 @@ const Menu = () => {
     } else setSearchResults([]);
   };
 
+
+
   return (
 
       <View >
-
-      <SortButtons menuItems={menuItems} setMenuItems={setMenuItems} />
 
       <View>
         {menuItems.length &&
@@ -98,15 +98,6 @@ const Menu = () => {
             />
           ))}
       </View>
-
-      
-          <Text>
-            Not finding what you want?
-          </Text>
-          <Text>
-            Search and add from{" "}
-          </Text>
-
           
             <TextInput style={styles.input}
               type="text"
@@ -133,24 +124,7 @@ const Menu = () => {
                     />
                   ))}
 
-        
 
-        
-          {Object.keys(currentOrder).length > 0 && (
-            <>
-              <Order
-                currentOrder={currentOrder}
-                currentTotal={currentTotal}
-                setCurrentOrder={setCurrentOrder}
-              />
-              <Pressable style={styles.btn}
-                onClick={confirmOrder}
-                disabled={Object.keys(currentOrder).length === 0 ? true : false}
-              >
-                <Text>Make Order</Text>
-              </Pressable>
-            </>
-          )}
       </View>
 
   );

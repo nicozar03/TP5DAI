@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
+import Search from '../screens/Search';
 import { Menu } from 'react-native-paper';
 
 
@@ -24,6 +25,9 @@ export default function MyStack() {
                     name="Menu"
                     component={Menu}
                 />
+                <Stack.Screen 
+                name="Search" 
+                component={Search}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
