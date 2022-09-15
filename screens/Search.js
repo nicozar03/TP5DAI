@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Text, View, TextInput, StyleSheet, FlatList, TouchableOpacity } from "react-native"
-import MenuCard from "../Components/MenuCard"
+import MenuItem from "../Components/MenuCard"
 import RecipesContext from "../Components/RecipeContext"
 export default function Search({route, navigation}){
   const [fetchedRecipes, setFetchedRecipes] = useState([])
@@ -41,8 +41,6 @@ export default function Search({route, navigation}){
 
   const handleSearch = (search) =>{
     if(search.length >=2){
-      //setSearch(newSearch)
-      //setSearch(newSearch)
       searchRecipes(search).then(res=>{setFetchedRecipes(res)})
     }else{
       setFetchedRecipes([])
@@ -50,7 +48,7 @@ export default function Search({route, navigation}){
   }
 
   const renderMenuItem = (recipe) =>(
-      <MenuCard item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
+      <MenuItem item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
 
   )
   
