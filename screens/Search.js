@@ -10,24 +10,25 @@ export default function Search({route, navigation}){
   const handleSubmit =()=>{
     console.log([...route.params.recipes,...recipesToAdd])
     let updatedList = [...route.params.recipes,...recipesToAdd]
-    navigation.navigate('HomeScreen',{recipes:updatedList})
+    navigation.navigate('Home',{recipes:updatedList})
   }
 
-  const searchSpoonacular = (searchInput) => {
-    if (searchInput.length >= 3) {
-      const getSearchResults = async () => {
-        const res = await fetch(
-          `https://api.spoonacular.com/recipes/autocomplete?apiKey=${API_KEY}&number=3&query=${searchInput}`
-        );
-        const searchRes = await res.json();
-        setSearchResults(searchRes);
-      };
+  const searchRecipes = async (input) => {
+    const filteredArray = []
+    const {data} = await axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=9d011376615d43b78d523af4e6e1fc9b&%20diet=vegan&number=1&addRecipeInformation=true&query='+input)
+    console.log(data.results[0].id)
+    console.log(route.params.recipes)
 
-      getSearchResults();
-    } else setSearchResults([]);
-  };
+    const myArrayFiltered = data.results.filter((el) => {
+      return !route.params.recipes.some((f) => {
+        return f.id === el.id
+      });
+    });
 
-   
+
+    console.log(myArrayFiltered)
+    return data.results
+  }
 
 
   const addToList = recipe =>{
@@ -38,8 +39,18 @@ export default function Search({route, navigation}){
     setRecipesToAdd(recipesToAdd.filter(val=>val!=recipe))
   }
 
+  const handleSearch = (search) =>{
+    if(search.length >=2){
+      //setSearch(newSearch)
+      //setSearch(newSearch)
+      searchRecipes(search).then(res=>{setFetchedRecipes(res)})
+    }else{
+      setFetchedRecipes([])
+    }
+  }
+
   const renderMenuItem = (recipe) =>(
-      <MenuCard item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
+      <MenuItem item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
 
   )
   
@@ -47,30 +58,13 @@ export default function Search({route, navigation}){
     <>
     <View style={styles.container}>
         <View style={{flexDirection:"row", width:'80%'}}>
-        <TextInput style={styles.input}
-              type="text"
-              id="search"
-              autoComplete="off"
-              placeholder="Search here."
-              onChange={(e) => searchSpoonacular(e.target.value)}
-            />
-
-            {!searchResults.length
-              ? ""
-              : searchResults
-                  .filter((result) => presentItems[result.title] !== true)
-                  .map((result) => (
-                    <Autocomplete
-                      title={result.title}
-                      id={result.id}
-                      setMenuItems={setMenuItems}
-                      menuItems={menuItems}
-                      key={result.id}
-                      API_KEY={API_KEY}
-                      presentItems={presentItems}
-                      setPresentItems={setPresentItems}
-                    />
-                  ))}
+          <TextInput
+            style={styles.input}
+            onChangeText={search=>{handleSearch(search)}}
+            placeholder="Buscar Receta"
+            keyboardType="default"
+            defaultValue=""
+          />
           <TouchableOpacity 
           style={{backgroundColor:'green', flex:2, borderRadius:5, marginLeft:10, alignItems:"center",justifyContent:"center"}}
           onPress={handleSubmit}
@@ -96,18 +90,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop:60
   },input: {
-    marginBottom: '4vh',
-    borderRadius: 12,
-    color: "#556b2f",
-    borderColor: "#8A864E",
-    borderWidth:3,
-    fontSize: 18,
-    outline: 0,
-    padding: 4,
-    height: '7.7vh',
-    width: '32.16vw',
-
-},list:{
+    flex:10,
+    width:'100%',
+    margin: 0,
+    borderWidth: 1,
+    padding: 8,
+    borderRadius:5,
+  },list:{
     width:'100%'
   }
 });
