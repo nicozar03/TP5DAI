@@ -50,7 +50,7 @@ export default function Search({route, navigation}){
   }
 
   const renderMenuItem = (recipe) =>(
-      <MenuItem item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
+      <MenuCard item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
 
   )
   

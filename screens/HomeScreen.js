@@ -11,7 +11,6 @@ export default function Home({route, navigation}){
 
     const getRecipes = async () => {
         const {data} = await axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=7cb0e6f2a06740c6af934602a156a996&%20diet=vegan&number=2')
-        //console.log(data)
         return data
     }
 

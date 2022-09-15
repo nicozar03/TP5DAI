@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import Search from '../screens/Search';
-import { Menu } from 'react-native-paper';
+import Recipe from '../screens/recipe';
 
 
 const Stack = createNativeStackNavigator();
@@ -12,23 +12,12 @@ const Stack = createNativeStackNavigator();
 export default function MyStack() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                    name="Login"
-                    component={LoginScreen}
-                />
-                <Stack.Screen
-                    name="Pagina principal"
-                    component={HomeScreen}
-                />
-                  <Stack.Screen
-                    name="Menu"
-                    component={Menu}
-                />
-                <Stack.Screen 
-                name="Search" 
-                component={Search}/>
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Stack.Navigator initialRouteName="Log In">
+          <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+          <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+          <Stack.Screen name="Search" component={Search}/>
+          <Stack.Screen name="Recipe" component={Recipe}/>
+        </Stack.Navigator>
+      </NavigationContainer>
     );
 };

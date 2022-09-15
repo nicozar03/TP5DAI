@@ -38,7 +38,7 @@ const LoginScreen = ({ navigation }) => {
             }
 
             else{
-                navigation.navigate("Pagina principal")   
+                navigation.navigate("HomeScreen")   
             }
         }
     }
