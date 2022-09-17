@@ -10,7 +10,7 @@ export default function Search({route, navigation}){
   const handleSubmit =()=>{
     console.log([...route.params.recipes,...recipesToAdd])
     let updatedList = [...route.params.recipes,...recipesToAdd]
-    navigation.navigate('Home',{recipes:updatedList})
+    navigation.navigate('HomeScreen',{recipes:updatedList})
   }
 
   const searchRecipes = async (input) => {
@@ -64,13 +64,13 @@ export default function Search({route, navigation}){
             defaultValue=""
           />
           <TouchableOpacity 
-          style={{backgroundColor:'green', flex:2, borderRadius:5, marginLeft:10, alignItems:"center",justifyContent:"center"}}
+          style={styles.btn}
           onPress={handleSubmit}
           >
-            <Text style={{color:'white', fontWeight:"bold"}}>Listo</Text>
+            <Text style={styles.text}>Listo</Text>
           </TouchableOpacity>
         </View>
-          <Text style={{}}>{recipesToAdd.length} plato/s agregados</Text>
+          <Text style={styles.textRecipes}>{recipesToAdd.length} plato/s agregados</Text>
         <FlatList 
         data={fetchedRecipes}
         numColumns={2}
@@ -86,15 +86,37 @@ export default function Search({route, navigation}){
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingTop:60
+    paddingTop:60,
+    backgroundColor:'#bdb76b',
+    height:'100vh'
   },input: {
     flex:10,
     width:'100%',
-    margin: 0,
-    borderWidth: 1,
+    borderWidth: 2,
     padding: 8,
-    borderRadius:5,
-  },list:{
+    borderRadius:16,
+    borderColor:'#8A864E',
+    color: "#556b2f",
+  },
+  btn:{
+    backgroundColor:'#556b2f', 
+    flex:2, 
+    borderRadius:8, 
+    marginLeft:'1.5vw', 
+    alignItems:"center",
+    justifyContent:"center"
+  },
+  text:{
+   color:'#eee',
+   fontWeight:'bold' 
+  },
+  textRecipes:{
+    color:'#eee',
+    fontWeight:'bold',
+    marginTop:'1.5vh',
+    marginBottom:'1,5vh',
+    textTransform:'uppercase',
+   },list:{
     width:'100%'
   }
 });

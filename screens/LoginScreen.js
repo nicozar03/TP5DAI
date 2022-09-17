@@ -1,10 +1,15 @@
-import { StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
+import {StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
 import Swal from 'sweetalert2'
 import React from "react";
 
 const LoginScreen = ({ navigation }) => {
     const [user, onUserChange] = React.useState("");
     const [password, onPasswordChange] = React.useState("");
+    const [recipes, setRecipes] = React.useState(false)
+    React.useEffect(()=>{
+         const data = require('../Components/fakeAPI.json')
+         setRecipes(data.results)
+      },[])
     
     const verificar = () => {
         if(!user || !password){
@@ -38,7 +43,7 @@ const LoginScreen = ({ navigation }) => {
             }
 
             else{
-                navigation.navigate("HomeScreen")   
+                navigation.navigate("HomeScreen",{recipes})   
             }
         }
     }
@@ -119,7 +124,6 @@ const styles = StyleSheet.create({
         padding: 4,
         height: '7.7vh',
         width: '32.16vw',
-
     },
 });
 

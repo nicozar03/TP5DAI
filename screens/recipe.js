@@ -20,10 +20,13 @@ export default function Recipe({route, navigation}){
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    backgroundColor:'#bdb76b',
+    height:'100vh',
   },card:{
     width:'90%',
-    backgroundColor:'#fff',
-    borderRadius:20,
+    borderColor: "#8A864E",
+    borderWidth: 3,
+    borderRadius: 30,
     padding:10,
     margin:5,
   },

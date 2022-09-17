@@ -3,7 +3,6 @@ import { FlatList, StyleSheet, View } from "react-native";
 import MenuCard from "./MenuCard";
 import RecipesContext from "./RecipeContext";
 import React from "react";
-//      {things.map((e,index)=>{return(<MenuItem key={index} Item={e}/>)})}
 
 export default function MenuList(){
   const {recipes, setRecipes, deleteRecipe, isSearch, navigation} = useContext(RecipesContext)
@@ -12,18 +11,28 @@ export default function MenuList(){
   )
   
   return (
+    <View style={styles.container}>
     <FlatList 
     data={recipes}
     numColumns={2}
     renderItem={renderMenuItem}
     style={styles.list}
-    columnWrapperStyle={{justifyContent:'center'}}
     />
+    </View>
+
   );
 }
 
 const styles = StyleSheet.create({
+  container:{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",  
+  },
   list:{
     width:'100%',
+    height:'auto',
+    marginTop:'3vh',
+
   }
 })
