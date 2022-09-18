@@ -6,11 +6,13 @@ export default function Recipe({route, navigation}){
     <>
     <View style={styles.container}>
     <View style={styles.card}>
-    <Image style={{width:'100%', height:150, borderRadius:20}} source={{uri:route.params.props.item.image}}/>
-      <Text style={{fontWeight:'bold'}}>{route.params.props.item.title}</Text>
-      <Text>Precio por porción: {route.params.props.item.pricePerServing}</Text>
-      <Text>Tiempo de preparación: {route.params.props.item.readyInMinutes}</Text>
-      <Text>Libre de gluten: {route.params.props.item.glutenFree?'si':'no'}</Text>
+    <Image style={styles.image} source={{uri:route.params.props.item.image}}/>
+    <Text style={styles.text}>{route.params.props.item.title}</Text>
+    <View style={styles.detail}>
+    <Text style={styles.otherData}>Precio por porción: {route.params.props.item.pricePerServing}</Text>
+      <Text style={styles.otherData}>Tiempo de preparación: {route.params.props.item.readyInMinutes}</Text>
+      <Text style={styles.otherData}>Libre de gluten: {route.params.props.item.glutenFree?'yes':'no'}</Text>
+    </View>
     </View>
     </View>
     </>
@@ -22,12 +24,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor:'#bdb76b',
     height:'100vh',
-  },card:{
-    width:'90%',
+  },
+  detail:{
+  backgroundColor:'#8A864E',
+  borderBottomLeftRadius:26,
+  borderBottomRightRadius:26  
+  },
+  image:{
+   width:'100%',
+   height:'32vh',
+   borderTopLeftRadius:30,
+   borderTopRightRadius:30,
+  }
+  ,card:{
+    width:'50%',
     borderColor: "#8A864E",
     borderWidth: 3,
     borderRadius: 30,
-    padding:10,
     margin:5,
+  },
+  text:{
+    fontSize:'1.5rem',
+    textAlign:'center',
+    fontWeight:'bold',
+    color:'#eee',
+    padding:10,
+  },
+  otherData:{
+    fontSize:'1rem',
+    color:'#eee',
+    fontWeight:'500',
+    padding:10,
   },
 }); 

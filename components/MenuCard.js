@@ -7,7 +7,7 @@ export default function MenuCard(props) {
   return (
     <View>
       <Card style={styles.card}>
-      <Card.Cover style={{width:'100%', height:'33vh', borderTopRightRadius:30, borderTopLeftRadius:30}} source={{uri:props.item.image}}/>
+      <Card.Cover style={{width:'100%', height:'33vh', borderTopRightRadius:27, borderTopLeftRadius:27}} source={{uri:props.item.image}}/>
         <Card.Content >
         <Text style={styles.title}>{props.item.title}</Text>
         <Text style={styles.otherData}> Vegan: {props.item.vegan ? "Yes" : "No"}</Text>

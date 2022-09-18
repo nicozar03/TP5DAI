@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, View, Text } from "react-native"
 import React from "react";
 import { RecipesProvider } from "../Components/RecipeContext";
 import MenuList from "../Components/MenuList";
@@ -21,6 +21,7 @@ export default function Home({route, navigation}){
         <>
             <RecipesProvider value={{recipes:recipes, setRecipes:setRecipes, deleteRecipe:deleteRecipe, isSearch:false, navigation:navigation}}>
                 <View style={styles.container}>
+                    <Text style={styles.title}>Este es nuestro menu</Text>
                     <MenuList/>
                 </View>
                 <SearchBtn navigation={navigation}/>
@@ -36,6 +37,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         height:''
     },
+    title:{
+        fontSize:'2rem',
+        marginTop:'2vh',
+        textAlign:'center',
+        fontWeight:'bold',
+        color:'#eee',
+      }
   });
 
   
