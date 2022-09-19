@@ -20,6 +20,10 @@ const LoginScreen = ({ navigation }) => {
                 text: 'Por favor complete los campos!',
               })
         }
+        axios({
+        method:"POST",
+        url: `http://challenge-react.alkemy.org/?email='+email+'&password='+contra,{}`  
+        }).then
             else{
                 navigation.navigate("HomeScreen",{recipes})   
             }
