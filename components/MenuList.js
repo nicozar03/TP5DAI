@@ -14,7 +14,6 @@ export default function MenuList(){
     <View style={styles.container}>
     <FlatList 
     data={recipes}
-    numColumns={2}
     renderItem={renderMenuItem}
     style={styles.list}
     />

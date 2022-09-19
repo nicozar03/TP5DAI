@@ -1,11 +1,12 @@
 import {StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
 import Swal from 'sweetalert2'
 import React from "react";
+import axios from "axios";
 
 const LoginScreen = ({ navigation }) => {
-    const [user, onUserChange] = React.useState("");
-    const [password, onPasswordChange] = React.useState("");
-    const [recipes, setRecipes] = React.useState(false)
+    const [user, onUserChange] = React.useState();
+    const [password, onPasswordChange] = React.useState();
+    const [recipes, setRecipes] = React.useState()
     React.useEffect(()=>{
          const data = require('../Components/fakeAPI.json')
          setRecipes(data.results)
@@ -19,34 +20,14 @@ const LoginScreen = ({ navigation }) => {
                 text: 'Por favor complete los campos!',
               })
         }
-        else if(user!= "challenge@alkemy.org" && password!= "react" ){
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: ' El nombre de usuario y la contrasena son incorrectos!',
-              })
-        }
-        else{
-            if(user!= "challenge@alkemy.org"){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'El nombre de usuario es incorrecto!',
-                  })
-            }
-            else if(password!= "react"){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'La contrasena es incorrecta!',
-                  })
-            }
+        axios({
+            method: 'POST',
+            url:`http://challenge-react.alkemy.org/?email='+email+'&password='+contra,{}`,
+            
+           }).then(res => {
 
-            else{
-                navigation.navigate("HomeScreen",{recipes})   
-            }
+           })
         }
-    }
     return (
         <>
         <View style={styles.body}>
