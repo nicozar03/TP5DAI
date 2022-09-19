@@ -1,7 +1,6 @@
 import {StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
 import Swal from 'sweetalert2'
 import React from "react";
-import axios from "axios";
 
 const LoginScreen = ({ navigation }) => {
     const [user, onUserChange] = React.useState();
@@ -20,14 +19,33 @@ const LoginScreen = ({ navigation }) => {
                 text: 'Por favor complete los campos!',
               })
         }
-        axios({
-        method:"POST",
-        url: `http://challenge-react.alkemy.org/?email='+email+'&password='+contra,{}`  
-        }).then
+        else if(user!= "challenge@alkemy.org" && password!= "react" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: ' El nombre de usuario y la contrasena son incorrectos!',
+              })
+        }
+        else{
+            if(user!= "challenge@alkemy.org"){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'El nombre de usuario es incorrecto!',
+                  })
+            }
+            else if(password!= "react"){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'La contrasena es incorrecta!',
+                  })
+            }
+
             else{
                 navigation.navigate("HomeScreen",{recipes})   
             }
-        
+        }
     }
     return (
         <>
