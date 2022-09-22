@@ -13,41 +13,29 @@ const LoginScreen = ({ navigation }) => {
       },[])
     
     const verificar = () => {
-        if(!user || !password){
-            Swal.fire({
+        if(!user || !password)
+            return Swal.fire({
                 icon: 'error',
                 title: 'Error',
                 text: 'Por favor complete los campos!',
               })
-        }
-        else if(user!= "challenge@alkemy.org" && password!= "react" ){
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: ' El nombre de usuario y la contrasena son incorrectos!',
-              })
-        }
-        else{
-            if(user!= "challenge@alkemy.org"){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'El nombre de usuario es incorrecto!',
-                  })
-            }
-            else if(password!= "react"){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'La contrasena es incorrecta!',
-                  })
-            }
 
-            else{
-                navigation.navigate("HomeScreen",{recipes})   
+        axios({
+            method: "POST",
+            url: "http://challenge-react.alkemy.org",
+            params: {
+                email: user,
+                password,
             }
-        }
+        })
+        .then(res => navigation.navigate("HomeScreen", {recipes}))
+        .catch(err => Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error de autenticacion. Proporcione las credenciales correctas',
+          }))
     }
+    
     return (
         <>
         <View style={styles.body}>
