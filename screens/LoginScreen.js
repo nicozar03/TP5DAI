@@ -1,4 +1,5 @@
 import {StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
+import { AntDesign } from '@expo/vector-icons'; 
 import Swal from 'sweetalert2';
 import axios from "axios";
 import React from "react";
@@ -60,7 +61,7 @@ const LoginScreen = ({ navigation }) => {
                 >
                     
                     <Text style={styles.btnText}>Enviar</Text>
-                    
+                    <AntDesign name="checkcircleo" size={32} color="white" />
                 </Pressable>
                 </View>
         </View>
@@ -94,12 +95,14 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        
 
     }, 
     btnText:{
         textAlign: 'center',
         color: '#eee',
         fontSize: '18px',
+        display:"inline-block"
 
     },
     input: {

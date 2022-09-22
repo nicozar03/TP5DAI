@@ -2,7 +2,6 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Text, View, TextInput, StyleSheet, FlatList, TouchableOpacity } from "react-native"
 import MenuCard from "../Components/MenuCard"
-import RecipesContext from "../Components/RecipeContext"
 export default function SearchScreen({route, navigation}){
   const [fetchedRecipes, setFetchedRecipes] = useState([])
   const [recipesToAdd, setRecipesToAdd] = useState([])
@@ -15,13 +14,13 @@ export default function SearchScreen({route, navigation}){
 
   const searchRecipes = async (input) => {
     const filteredArray = []
-    const {data} = await axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=9d011376615d43b78d523af4e6e1fc9b&%20diet=vegan&number=1&addRecipeInformation=true&query='+input)
+    const {data} = await axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=7cb0e6f2a06740c6af934602a156a996&%20diet=vegan&number=1&addRecipeInformation=true&query='+input)
     console.log(data.results[0].id)
     console.log(route.params.recipes)
 
-    const myArrayFiltered = data.results.filter((el) => {
-      return !route.params.recipes.some((f) => {
-        return f.id === el.id
+    const myArrayFiltered = data.results.filter((a) => {
+      return !route.params.recipes.some((b) => {
+        return a.id === b.id
       });
     });
 
@@ -67,7 +66,7 @@ export default function SearchScreen({route, navigation}){
           style={styles.btn}
           onPress={handleSubmit}
           >
-            <Text style={styles.text}>Listo</Text>
+            <Text style={styles.text}>Actualizar Menu</Text>
           </TouchableOpacity>
         </View>
           <Text style={styles.textRecipes}>{recipesToAdd.length} plato/s agregados</Text>

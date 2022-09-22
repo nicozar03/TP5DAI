@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { TouchableOpacity, Text,View, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import RecipesContext from "./RecipeContext";
 
 export default function SearchBtn(props){
@@ -9,8 +10,8 @@ export default function SearchBtn(props){
     <TouchableOpacity
     style={styles.btn}
     onPress={()=>{props.navigation.navigate('Search',{recipes})}}>
-      <Text style={{textAlign:'center', marginVertical:-25, color:'white', fontWeight:'bold', fontSize:70}}>
-        +
+      <Text >
+      <MaterialCommunityIcons style={{textAlign:'center', color:'white'}} name="bowl-mix-outline" size={48}/>
       </Text>
     </TouchableOpacity>
     </View>

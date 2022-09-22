@@ -6,9 +6,6 @@ import { RecipesProvider } from "../Components/RecipeContext";
 import MenuList from "../Components/MenuList";
 import SearchBtn from "../Components/SearchBtn";
 export default function Home({route, navigation}){
-    //const apikey = route.params; esta key no anda xd
-    //const apiKey = '9d011376615d43b78d523af4e6e1fc9b'
-    
     const [recipes, setRecipes] = useState([])
     useEffect(()=>{setRecipes(route.params.recipes)},[route])
     const deleteRecipe = (id) => {
