@@ -4,13 +4,13 @@ import { Text, View, TextInput, StyleSheet, FlatList, TouchableOpacity } from "r
 import MenuCard from "../Components/MenuCard";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function SearchScreen({route, navigation}){
-  const [fetchedRecipes, setFetchedRecipes] = useState([])
-  const [recipesToAdd, setRecipesToAdd] = useState([])
+  const [busquedaRecetas, setbusquedaRecetas] = useState([])
+  const [agregarRecetas, setAgregarRecetas] = useState([])
 
   const handleSubmit =()=>{
-    console.log([...route.params.recipes,...recipesToAdd])
-    let updatedList = [...route.params.recipes,...recipesToAdd]
-    navigation.navigate('HomeScreen',{recipes:updatedList})
+    console.log([...route.params.recipes,...agregarRecetas])
+    let nuevaLista = [...route.params.recipes,...agregarRecetas]
+    navigation.navigate('HomeScreen',{recipes:nuevaLista})
   }
 
   const searchRecipes = async (input) => {
@@ -31,18 +31,18 @@ export default function SearchScreen({route, navigation}){
 
 
   const addToList = recipe =>{
-    setRecipesToAdd([...recipesToAdd, recipe])
+    setAgregarRecetas([...agregarRecetas, recipe])
   }
 
   const deleteFromList = recipe => {
-    setRecipesToAdd(recipesToAdd.filter(val=>val!=recipe))
+    setAgregarRecetas(agregarRecetas.filter(val=>val!=recipe))
   }
 
   const handleSearch = (search) =>{
     if(search.length >=2){
-      searchRecipes(search).then(res=>{setFetchedRecipes(res)})
+      searchRecipes(search).then(res=>{setbusquedaRecetas(res)})
     }else{
-      setFetchedRecipes([])
+      setbusquedaRecetas([])
     }
   }
 
@@ -68,9 +68,9 @@ export default function SearchScreen({route, navigation}){
             <Text style={styles.text}>Actualizar Menu</Text>
             <MaterialCommunityIcons name="update" size={24} color="white" />
           </TouchableOpacity>
-          <Text style={styles.textRecipes}>{recipesToAdd.length} plato/s agregados</Text>
+          <Text style={styles.textRecipes}>{agregarRecetas.length} plato/s agregados</Text>
         <FlatList 
-        data={fetchedRecipes}
+        data={busquedaRecetas}
         renderItem={renderMenuItem}
         style={styles.list}
         />
