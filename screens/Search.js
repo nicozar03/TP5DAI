@@ -91,8 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#bdb76b',
     height:'100vh'
   },input: {
-    flex:10,
-    width:'100%',
+    width:'80%',
     borderWidth: 2,
     padding: 8,
     borderRadius:16,
@@ -101,8 +100,8 @@ const styles = StyleSheet.create({
   },
   btn:{
     backgroundColor:'#556b2f', 
-    flex:2, 
     borderRadius:8, 
+    width:"20%",
     marginLeft:'1.5vw', 
     alignItems:"center",
     justifyContent:"center"
