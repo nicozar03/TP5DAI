@@ -1,7 +1,8 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Text, View, TextInput, StyleSheet, FlatList, TouchableOpacity } from "react-native"
-import MenuCard from "../Components/MenuCard"
+import MenuCard from "../Components/MenuCard";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function SearchScreen({route, navigation}){
   const [fetchedRecipes, setFetchedRecipes] = useState([])
   const [recipesToAdd, setRecipesToAdd] = useState([])
@@ -67,6 +68,7 @@ export default function SearchScreen({route, navigation}){
           onPress={handleSubmit}
           >
             <Text style={styles.text}>Actualizar Menu</Text>
+            <MaterialCommunityIcons name="update" size={24} color="white" />
           </TouchableOpacity>
         </View>
           <Text style={styles.textRecipes}>{recipesToAdd.length} plato/s agregados</Text>

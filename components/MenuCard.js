@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { StyleSheet, Text, View, Image, Touchable, TouchableOpacity } from "react-native";
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Feather } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function MenuCard(props) {
   const [added, setAdded] = useState(false)
@@ -27,11 +29,13 @@ export default function MenuCard(props) {
               <TouchableOpacity style={styles.btn}
                 onPress={() => { props.navigation.navigate('Recipe', { props }) }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>Ver info</Text>
+                <Feather name="info" size={24} color="white" />
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.btnDelete}
                 onPress={() => { props.delete(props.item.id) }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>Eliminar</Text>
+                <MaterialCommunityIcons name="delete-alert-outline" size={24} color="white" />
               </TouchableOpacity>
             </>
           }

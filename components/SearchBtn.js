@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 btn: {
   width:60, 
   height:60, 
-  backgroundColor:'green', 
+  backgroundColor:'#556b2f', 
   borderRadius:99, 
   position:'fixed',
   bottom:40,
