@@ -13,7 +13,7 @@ export default function SearchScreen({route, navigation}){
     navigation.navigate('HomeScreen',{recipes:nuevaLista})
   }
 
-  const searchRecipes = async (input) => {
+  const buscarRecetas = async (input) => {
     const {data} = await axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=7cb0e6f2a06740c6af934602a156a996&%20diet=vegan&number=1&addRecipeInformation=true&query='+input)
     console.log(data.results[0].id)
     console.log(route.params.recipes)
@@ -40,7 +40,7 @@ export default function SearchScreen({route, navigation}){
 
   const handleSearch = (search) =>{
     if(search.length >=2){
-      searchRecipes(search).then(res=>{setbusquedaRecetas(res)})
+      buscarRecetas(search).then(res=>{setbusquedaRecetas(res)})
     }else{
       setbusquedaRecetas([])
     }

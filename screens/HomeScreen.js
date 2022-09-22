@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from "react-native"
 import React from "react";
 import { RecipesProvider } from "../Components/RecipeContext";
 import MenuList from "../Components/MenuList";
-import SearchBtn from "../Components/SearchBtn";
+import BotonBusqueda from "../Components/BotonBusqueda";
 export default function HomeScreen({route, navigation}){
     const [recipes, setRecipes] = useState([])
     useEffect(()=>{setRecipes(route.params.recipes)},[route])
@@ -22,7 +22,7 @@ export default function HomeScreen({route, navigation}){
                     <Text style={styles.p}>(Haciendo click en el boton de la esquina inferior derecha podra agregar platos al menu)</Text>
                     <MenuList/>
                 </View>
-                <SearchBtn navigation={navigation}/>
+                <BotonBusqueda navigation={navigation}/>
             </RecipesProvider>
         </>
     )

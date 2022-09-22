@@ -1,6 +1,6 @@
 import { useEffect} from 'react';
 import {Text, StyleSheet, View, Image } from 'react-native' 
-export default function Recipe({route, navigation}){
+export default function Receta({route, navigation}){
   useEffect(()=>{console.log(route.params.props.item)})
   return(
     <>

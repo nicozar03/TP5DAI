@@ -27,7 +27,7 @@ export default function MenuCard(props) {
             :
             <>
               <TouchableOpacity style={styles.btn}
-                onPress={() => { props.navigation.navigate('Recipe', { props }) }}>
+                onPress={() => { props.navigation.navigate('Receta', { props }) }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>Ver info</Text>
                 <Feather name="info" size={24} color="white" />
               </TouchableOpacity>

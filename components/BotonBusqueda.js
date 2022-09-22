@@ -3,7 +3,7 @@ import { TouchableOpacity, Text,View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import RecipesContext from "./RecipeContext";
 
-export default function SearchBtn(props){
+export default function BotonBusqueda(props){
   const {recipes} = useContext(RecipesContext)
   return(
     <View style={styles.container}>
