@@ -3,7 +3,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Swal from 'sweetalert2';
 import axios from "axios";
 import React from "react";
-
+/*Api Key  7cb0e6f2a06740c6af934602a156a996*/
 const LoginScreen = ({ navigation }) => {
     const [user, onUserChange] = React.useState();
     const [password, onPasswordChange] = React.useState();
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     btn: {
         backgroundColor: '#556b2f',
         borderRadius: '12px',
-        height: '7.7vh',
+        height: '8.7vh',
         width: '50%',
         display: "flex",
         justifyContent: "center",

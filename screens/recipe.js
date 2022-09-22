@@ -10,8 +10,12 @@ export default function Recipe({route, navigation}){
     <Text style={styles.text}>{route.params.props.item.title}</Text>
     <View style={styles.detail}>
     <Text style={styles.otherData}>Precio por porción: {route.params.props.item.pricePerServing}</Text>
-      <Text style={styles.otherData}>Tiempo de preparación: {route.params.props.item.readyInMinutes}</Text>
+      <Text style={styles.otherData}>Tiempo de preparación: {route.params.props.item.readyInMinutes} mins</Text>
+      <Text style={styles.otherData}>Vegetariano: {route.params.props.item.vegetarian?'yes':'no'}</Text>
+      <Text style={styles.otherData}>Vegano: {route.params.props.item.vegan?'yes':'no'}</Text>
       <Text style={styles.otherData}>Libre de gluten: {route.params.props.item.glutenFree?'yes':'no'}</Text>
+      <Text style={styles.otherData}>Saludable: {route.params.props.item.healthScore}%</Text>
+      <Text style={styles.otherData}>Likes {route.params.props.item.aggregateLikes}</Text>
     </View>
     </View>
     </View>
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
    borderTopRightRadius:30,
   }
   ,card:{
-    width:'50%',
+    width:'80%',
     borderColor: "#8A864E",
     borderWidth: 3,
     borderRadius: 30,

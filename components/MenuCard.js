@@ -11,7 +11,7 @@ export default function MenuCard(props) {
       <Card style={styles.card}>
       <Card.Cover style={{width:'100%', height:'33vh', borderTopRightRadius:27, borderTopLeftRadius:27}} source={{uri:props.item.image}}/>
         <Card.Content >
-        <Text style={styles.title}>{props.item.title}</Text>
+        <Text style={styles.titulo}>{props.item.title}</Text>
         <Text style={styles.otherData}> Vegan: {props.item.vegan ? "Yes" : "No"}</Text>
           <Text style={styles.precio}>Price:${props.item.pricePerServing}</Text>
         </Card.Content>
@@ -19,9 +19,9 @@ export default function MenuCard(props) {
         <Card.Actions>
           {props.isSearch ?
             <>
-              <TouchableOpacity style={styles.btn}
+              <TouchableOpacity style={styles.btnAdd}
                 onPress={() => { added ? props.deleteFromList(props.item) : props.addToList(props.item); setAdded(!added) }}>
-                <Text style={{ color: 'white', fontWeight: 'bold' }}>{added ? 'Eliminar' : 'Agregar'}</Text>
+                <Text style={{ color: 'white', fontWeight: 'bold', textAlign:'center', marginTop:'2vh'}}>{added ? 'Eliminar' : 'Agregar'}</Text>
               </TouchableOpacity>
             </>
             :
@@ -54,14 +54,20 @@ const styles = StyleSheet.create({
     width:"100%",
   },
 
-
+  titulo: {
+    fontSize: '1.25rem',
+    textAlign:'center',
+    fontWeight:600
+  },
   precio: {
     fontSize: 24,
     fontWeight: 550,
+    textAlign:'center'
   },
 
   otherData: {
     fontSize: 16,
+    textAlign:'center'
   },
 title:{
 color:'#404040',
@@ -78,7 +84,14 @@ fontSize:'1rem',
    marginRight:"12%" ,
 
   },
+  btnAdd: {
+    backgroundColor: '#556b2f',
+    borderRadius: '12px',
+    height: '7.7vh',
+    width: '42%',
+    marginLeft:'30%'
 
+  },
   btnDelete: {
     backgroundColor: '#B85B48',
     borderRadius: '12px',

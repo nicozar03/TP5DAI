@@ -14,7 +14,6 @@ export default function SearchScreen({route, navigation}){
   }
 
   const searchRecipes = async (input) => {
-    const filteredArray = []
     const {data} = await axios.get('https://api.spoonacular.com/recipes/complexSearch/?apiKey=7cb0e6f2a06740c6af934602a156a996&%20diet=vegan&number=1&addRecipeInformation=true&query='+input)
     console.log(data.results[0].id)
     console.log(route.params.recipes)
@@ -72,10 +71,8 @@ export default function SearchScreen({route, navigation}){
           <Text style={styles.textRecipes}>{recipesToAdd.length} plato/s agregados</Text>
         <FlatList 
         data={fetchedRecipes}
-        numColumns={2}
         renderItem={renderMenuItem}
         style={styles.list}
-        columnWrapperStyle={{justifyContent:'center'}}
         />
     </View>
     </>
@@ -102,7 +99,6 @@ const styles = StyleSheet.create({
     backgroundColor:'#556b2f', 
     borderRadius:8, 
     width:"64%",
-    
     display:"flex", 
     alignItems:"center",
     justifyContent:"center"
