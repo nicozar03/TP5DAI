@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     marginBottom:'1,5vh',
     textTransform:'uppercase',
    },list:{
-    width:'100%'
-  }
+    width:'100%',
+  },
+
 });

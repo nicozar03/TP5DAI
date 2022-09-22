@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 30,
     marginBottom: "10px",
-    marginRight:'1vw'
+    width:"100%",
   },
 
 
