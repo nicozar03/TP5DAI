@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import RecipesContext from "./RecipeContext";
 
 export default function SearchBtn(props){
-  const {recipes, setRecipes, deleteRecipe, isSearch} = useContext(RecipesContext)
+  const {recipes} = useContext(RecipesContext)
   return(
     <View style={styles.container}>
     <TouchableOpacity

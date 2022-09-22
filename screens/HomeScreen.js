@@ -8,7 +8,7 @@ import SearchBtn from "../Components/SearchBtn";
 export default function HomeScreen({route, navigation}){
     const [recipes, setRecipes] = useState([])
     useEffect(()=>{setRecipes(route.params.recipes)},[route])
-    const deleteRecipe = (id) => {
+    const borrar = (id) => {
         setRecipes(recipes.filter(recipe => recipe.id!=id))
     }
     
@@ -16,7 +16,7 @@ export default function HomeScreen({route, navigation}){
 
     return (
         <>
-            <RecipesProvider value={{recipes:recipes, setRecipes:setRecipes, deleteRecipe:deleteRecipe, isSearch:false, navigation:navigation}}>
+            <RecipesProvider value={{recipes:recipes, setRecipes:setRecipes, borrar:borrar, busqueda:false, navigation:navigation}}>
                 <View style={styles.container}>
                     <Text style={styles.title}>Este es nuestro menu</Text>
                     <Text style={styles.p}>(Haciendo click en el boton de la esquina inferior derecha podra agregar platos al menu)</Text>

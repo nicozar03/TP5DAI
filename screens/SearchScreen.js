@@ -47,7 +47,7 @@ export default function SearchScreen({route, navigation}){
   }
 
   const renderMenuItem = (recipe) =>(
-      <MenuCard item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
+      <MenuCard item={recipe.item} busqueda={true} addToList={addToList} deleteFromList={deleteFromList}/>
 
   )
   

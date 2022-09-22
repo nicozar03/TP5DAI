@@ -5,9 +5,9 @@ import RecipesContext from "./RecipeContext";
 import React from "react";
 
 export default function Lista(){
-  const {recipes, setRecipes, deleteRecipe, isSearch, navigation} = useContext(RecipesContext)
+  const {recipes, setRecipes, borrar, busqueda, navigation} = useContext(RecipesContext)
   const renderMenuItem = (recipe) =>(
-    <MenuCard item={recipe.item} delete={deleteRecipe} isSearch={isSearch} navigation={navigation}/>
+    <MenuCard item={recipe.item} borrar={borrar} busqueda={busqueda} navigation={navigation}/>
   )
   
   return (

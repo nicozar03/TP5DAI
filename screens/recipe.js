@@ -9,7 +9,7 @@ export default function Recipe({route, navigation}){
     <Image style={styles.image} source={{uri:route.params.props.item.image}}/>
     <Text style={styles.text}>{route.params.props.item.title}</Text>
     <View style={styles.detail}>
-    <Text style={styles.otherData}>Precio por porción: {route.params.props.item.pricePerServing}</Text>
+    <Text style={styles.otherData}>Precio por porción: ${route.params.props.item.pricePerServing}</Text>
       <Text style={styles.otherData}>Tiempo de preparación: {route.params.props.item.readyInMinutes} mins</Text>
       <Text style={styles.otherData}>Vegetariano: {route.params.props.item.vegetarian?'yes':'no'}</Text>
       <Text style={styles.otherData}>Vegano: {route.params.props.item.vegan?'yes':'no'}</Text>

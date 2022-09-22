@@ -17,7 +17,7 @@ export default function MenuCard(props) {
         </Card.Content>
 
         <Card.Actions>
-          {props.isSearch ?
+          {props.busqueda ?
             <>
               <TouchableOpacity style={styles.btnAdd}
                 onPress={() => { added ? props.deleteFromList(props.item) : props.addToList(props.item); setAdded(!added) }}>
@@ -33,7 +33,7 @@ export default function MenuCard(props) {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.btnDelete}
-                onPress={() => { props.delete(props.item.id) }}>
+                onPress={() => { props.borrar(props.item.id) }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>Eliminar</Text>
                 <MaterialCommunityIcons name="delete-alert-outline" size={24} color="white" />
               </TouchableOpacity>
