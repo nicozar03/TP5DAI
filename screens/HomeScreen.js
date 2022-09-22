@@ -19,6 +19,7 @@ export default function Home({route, navigation}){
             <RecipesProvider value={{recipes:recipes, setRecipes:setRecipes, deleteRecipe:deleteRecipe, isSearch:false, navigation:navigation}}>
                 <View style={styles.container}>
                     <Text style={styles.title}>Este es nuestro menu</Text>
+                    <Text style={styles.p}>(Haciendo click en el boton de la esquina inferior derecha podra agregar platos al menu)</Text>
                     <MenuList/>
                 </View>
                 <SearchBtn navigation={navigation}/>
@@ -39,6 +40,13 @@ const styles = StyleSheet.create({
         marginTop:'2vh',
         textAlign:'center',
         fontWeight:'bold',
+        color:'#eee',
+      },
+      p:{
+        fontSize:'1rem',
+        marginTop:'2vh',
+        textAlign:'center',
+        fontWeight:'500',
         color:'#eee',
       }
   });
