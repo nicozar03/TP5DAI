@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#556b2f',
         borderRadius: '12px',
         height: '7.7vh',
-        width: '28%',
+        width: '50%',
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         outline: 0,
         padding: 4,
         height: '7.7vh',
-        width: '42%',
+        width: '80%',
     },
 });
 

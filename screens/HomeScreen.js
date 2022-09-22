@@ -5,7 +5,7 @@ import React from "react";
 import { RecipesProvider } from "../Components/RecipeContext";
 import MenuList from "../Components/MenuList";
 import SearchBtn from "../Components/SearchBtn";
-export default function Home({route, navigation}){
+export default function HomeScreen({route, navigation}){
     const [recipes, setRecipes] = useState([])
     useEffect(()=>{setRecipes(route.params.recipes)},[route])
     const deleteRecipe = (id) => {

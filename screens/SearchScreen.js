@@ -55,7 +55,6 @@ export default function SearchScreen({route, navigation}){
   return(
     <>
     <View style={styles.container}>
-        <View style={{flexDirection:"row", width:'80%'}}>
           <TextInput
             style={styles.input}
             onChangeText={search=>{handleSearch(search)}}
@@ -70,7 +69,6 @@ export default function SearchScreen({route, navigation}){
             <Text style={styles.text}>Actualizar Menu</Text>
             <MaterialCommunityIcons name="update" size={24} color="white" />
           </TouchableOpacity>
-        </View>
           <Text style={styles.textRecipes}>{recipesToAdd.length} plato/s agregados</Text>
         <FlatList 
         data={fetchedRecipes}
@@ -91,24 +89,28 @@ const styles = StyleSheet.create({
     backgroundColor:'#bdb76b',
     height:'100vh'
   },input: {
-    width:'80%',
+    width:'100%',
     borderWidth: 2,
     padding: 8,
     borderRadius:16,
     borderColor:'#8A864E',
     color: "#556b2f",
+    display:"flex",
+    marginBottom:"3vh",
   },
   btn:{
     backgroundColor:'#556b2f', 
     borderRadius:8, 
-    width:"20%",
-    marginLeft:'1.5vw', 
+    width:"64%",
+    
+    display:"flex", 
     alignItems:"center",
     justifyContent:"center"
   },
   text:{
    color:'#eee',
-   fontWeight:'bold' 
+   fontWeight:'bold', 
+   textAlign:"center",
   },
   textRecipes:{
     color:'#eee',
