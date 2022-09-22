@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
-import Search from '../screens/Search';
+import SearchScreen from '../screens/Search';
 import Recipe from '../screens/Recipe';
 
 
@@ -15,7 +15,7 @@ export default function MyStack() {
         <Stack.Navigator initialRouteName="Log In">
           <Stack.Screen name="LoginScreen" component={LoginScreen}/>
           <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-          <Stack.Screen name="Search" component={Search}/>
+          <Stack.Screen name="Search" component={SearchScreen}/>
           <Stack.Screen name="Recipe" component={Recipe}/>
         </Stack.Navigator>
       </NavigationContainer>

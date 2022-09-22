@@ -1,5 +1,6 @@
 import {StyleSheet, View, Text, Button, TextInput,Pressable } from "react-native";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import axios from "axios";
 import React from "react";
 
 const LoginScreen = ({ navigation }) => {
@@ -7,7 +8,7 @@ const LoginScreen = ({ navigation }) => {
     const [password, onPasswordChange] = React.useState();
     const [recipes, setRecipes] = React.useState()
     React.useEffect(()=>{
-         const data = require('../Components/fakeAPI.json')
+         const data = require('../Components/exampleMenu.json')
          setRecipes(data.results)
       },[])
     

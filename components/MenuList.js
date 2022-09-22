@@ -4,7 +4,7 @@ import MenuCard from "./MenuCard";
 import RecipesContext from "./RecipeContext";
 import React from "react";
 
-export default function MenuList(){
+export default function Lista(){
   const {recipes, setRecipes, deleteRecipe, isSearch, navigation} = useContext(RecipesContext)
   const renderMenuItem = (recipe) =>(
     <MenuCard item={recipe.item} delete={deleteRecipe} isSearch={isSearch} navigation={navigation}/>

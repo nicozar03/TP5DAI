@@ -1,9 +1,9 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { Text, View, TextInput, StyleSheet, FlatList, TouchableOpacity } from "react-native"
-import MenuItem from "../Components/MenuCard"
+import MenuCard from "../Components/MenuCard"
 import RecipesContext from "../Components/RecipeContext"
-export default function Search({route, navigation}){
+export default function SearchScreen({route, navigation}){
   const [fetchedRecipes, setFetchedRecipes] = useState([])
   const [recipesToAdd, setRecipesToAdd] = useState([])
 
@@ -48,7 +48,7 @@ export default function Search({route, navigation}){
   }
 
   const renderMenuItem = (recipe) =>(
-      <MenuItem item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
+      <MenuCard item={recipe.item} isSearch={true} addToList={addToList} deleteFromList={deleteFromList}/>
 
   )
   
