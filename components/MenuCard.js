@@ -19,7 +19,7 @@ export default function MenuCard(props) {
         <Card.Actions>
           {props.busqueda ?
             <>
-              <TouchableOpacity style={styles.btnAdd}
+              <TouchableOpacity style={!added ? styles.btnAdd : {backgroundColor: '#B85B48', borderRadius: '12px', height: '7.7vh', width: '42%',  marginLeft:'30%'}}
                 onPress={() => { added ? props.deleteFromList(props.item) : props.addToList(props.item); setAdded(!added) }}>
                 <Text style={{ color: 'white', fontWeight: 'bold', textAlign:'center', marginTop:'2vh'}}>{added ? 'Eliminar' : 'Agregar'}</Text>
               </TouchableOpacity>
@@ -31,6 +31,7 @@ export default function MenuCard(props) {
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>Ver info</Text>
                 <Feather name="info" size={24} color="white" />
               </TouchableOpacity>
+
               <TouchableOpacity
                 style={styles.btnDelete}
                 onPress={() => { props.borrar(props.item.id) }}>
